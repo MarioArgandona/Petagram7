@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="marioargandona.com.petagram6.fragment.RecyclerViewFragment">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:text="@string/nombre_mi_mascota"
+        android:layout_below="@+id/imvPrincipal"
+        android:gravity="center_vertical|center_horizontal"
+        android:textAlignment="center"
+        android:textSize="@dimen/margin_top"
+        android:layout_gravity="center_horizontal" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvMascota"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_centerHorizontal="true"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:layout_below="@+id/miActionBar"
+        >
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

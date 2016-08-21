@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="nombre">Mario Argandoña</string>
+    <string name="telefono">5524930478</string>
+    <string name="email">mario.argandona@gbts.com.mx</string>
+    <string name="variable_nombre">Nombre</string>
+    <string name="variable_telefono">Telefono</string>
+    <string name="variable_email">Email</string>
+    <string name="variable_descripcion">Descripcion</string>
+    <string name="variable_dia">Dia</string>
+    <string name="variable_mes">Mes</string>
+    <string name="variable_anio">Anio</string>
+    <string name="nombre_Contacto">Nombre completo</string>
+    <string name="nombre_usuario">Escribe tu usuario</string>
+    <string name="email_Contacto">Email</string>
+    <string name="telefono_Contacto">Teléfono</string>
+    <string name="descripcion_Contacto">Descripcion contacto</string>
+    <string name="mensaje_Contacto">Mensaje</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="enviar_comentario">Enviar comentario</string>
+    <string name="titulo_tarjeta">Confirmar Datos</string>
+    <string name="cadena_fecha_naciemiento">Fecha Nacimiento:</string>
+    <string name="cadena_telefono">Tel:</string>
+    <string name="cadena_email">Email:</string>
+    <string name="cadena_descripcion">Descripción:</string>
+    <string name="nombre_mascota">Mascota</string>
+    <string name="likes_mascota">0</string>
+    <string name="menu_acerca_de">Acerca de...</string>
+    <string name="configurar_cuenta">Configurar Cuenta</string>
+    <string name="menu_contacto">Contacto</string>
+    <string name="falta_nombre_correo">Favor de introducir nombre</string>
+    <string name="falta_email_correo">Favor de introducir email</string>
+    <string name="menu_favoritos">Favoritos</string>
+    <string name="leyenda_acerca_de">Curso Android Coursera  v 1.0    Mario Alberto Argandoña González</string>
+    <string name="nombre_mi_mascota">Sin usuario</string>
+    <string name="guardar_usuario_instagram">Guardar cuenta</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

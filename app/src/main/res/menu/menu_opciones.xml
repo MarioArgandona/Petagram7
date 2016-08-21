@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mContacto"
+        android:title="@string/menu_contacto"
+        android:orderInCategory="100"
+        >
+    </item>
+
+
+
+    <item
+        android:id="@+id/mAcercaDe"
+        android:title="@string/menu_acerca_de"
+        android:orderInCategory="101"
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/mConfigurarCuenta"
+        android:title="@string/configurar_cuenta"
+        android:orderInCategory="104"
+        >
+    </item>
+
+
+    <item
+        android:id="@+id/mFavoritos"
+        android:title="@string/menu_favoritos"
+        android:orderInCategory="102"
+        app:showAsAction="always"
+        android:icon="@drawable/stars"
+        >
+    </item>
+</menu>
