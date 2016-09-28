@@ -26,6 +26,28 @@ public class RestApiAdapter {
         return retrofit.create(EndpointsApi.class);
     }
 
+    public EndpointsApi establecerConexionRestApi()
+    {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConstantesRestApi.ROOT_URL_PETAGRAM)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(EndpointsApi.class);
+    }
+
+
+
+    public EndpointsApi registrarUsuario()
+    {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConstantesRestApi.ROOT_URL_PETAGRAM)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        return retrofit.create(EndpointsApi.class);
+    }
+
 
 
 

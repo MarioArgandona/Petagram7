@@ -10,10 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,12 @@ import marioargandona.com.petagram6.entidades.Mascota;
 import marioargandona.com.petagram6.fragment.PrincipalFragment;
 import marioargandona.com.petagram6.fragment.RecyclerViewFragment;
 import marioargandona.com.petagram6.restApi.ConstantesRestApi;
+import marioargandona.com.petagram6.restApi.EndpointsApi;
+import marioargandona.com.petagram6.restApi.adapter.RestApiAdapter;
+import marioargandona.com.petagram6.restApi.model.UsuarioResponse;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        recibirNotificaciones();
 
         toolbar     = (Toolbar)findViewById(R.id.toolbar);
         tabLayout   = (TabLayout) findViewById(R.id.tabLayout);
@@ -194,8 +205,78 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentConfigurarCuenta = new Intent(getApplicationContext() , ConfigurarCuenta.class);
                 startActivity(intentConfigurarCuenta);
                 break;
+            case R.id.mRecibirNotificaciones:
+                //NO GENERA INTENT, SOLO GENERA LOS ENVIOS A GCM
+                enviarToken();
+                break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void enviarToken()
+    {
+        String id_dispositivo = FirebaseInstanceId.getInstance().getToken();
+        //enviarTokenRegistro(token);
+        enviarIdDispositivoRegistro(id_dispositivo , ConstantesRestApi.usuario);
+    }
+
+
+    private void enviarTokenRegistro(String token)
+    {
+        Log.d("TOKEN" , token);
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApi();
+        Call<UsuarioResponse> usuarioResponseCall = endpointsApi.registrarTokenID(token);
+
+        usuarioResponseCall.enqueue(new Callback<UsuarioResponse>() {
+            @Override
+            public void onResponse(Call<UsuarioResponse> call, Response<UsuarioResponse> response) {
+                UsuarioResponse usuarioResponse = response.body();
+                Log.d("ID FIREBASE" , usuarioResponse.getId());
+                Log.d("USUARIO_FIREBASE" , usuarioResponse.getToken());
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+
+    private void enviarIdDispositivoRegistro(String id_dispositivo , String id_usuario_instagram)
+    {
+        Log.d("ID_DISPOSITIVO" , id_dispositivo);
+        Log.d("ID_USUARIO_INSTAGRAM" , id_usuario_instagram);
+        RestApiAdapter restApiAdapter = new RestApiAdapter();
+        EndpointsApi endpointsApi = restApiAdapter.registrarUsuario();
+        Call<UsuarioResponse> usuarioResponseCall = endpointsApi.registrarUsuario(id_dispositivo, id_usuario_instagram);
+        //Call<UsuarioResponse> usuarioResponseCall = endpointsApi.registrarTokenID(token);
+
+        usuarioResponseCall.enqueue(new Callback<UsuarioResponse>() {
+            @Override
+            public void onResponse(Call<UsuarioResponse> call, Response<UsuarioResponse> response) {
+                UsuarioResponse usuarioResponse = response.body();
+                Log.d("ID FIREBASE" , usuarioResponse.getId());
+                Log.d("ID_DISPOSITIVO" , usuarioResponse.getId_dispositivo());
+                Log.d("ID_USUARIO_INSTAGRAM" , usuarioResponse.getId_usuario_instagram());
+            }
+
+            @Override
+            public void onFailure(Call<UsuarioResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+
+
+    private void recibirNotificaciones()
+    {
+        String token = FirebaseInstanceId.getInstance().getToken();
+        Log.d("TOKEN" , token);
     }
 }

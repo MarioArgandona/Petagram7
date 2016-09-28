@@ -20,5 +20,8 @@ public final class ConstantesRestApi {
     public static final String KEY_GET_USER =               "users/search?q=";
     public static final String URL_GET_RECENT_MEDIA_USER =  KEY_GET_RECENT_MEDIA_USER + KEY_ACCESS_TOKEN + ACCESS_TOKEN;
     public static final String URL_GET_USER =               KEY_GET_USER + "mario_argandona" + KEY_ACCESS_TOKEN_SEARCH + ACCESS_TOKEN;
+    public static final String ROOT_URL_PETAGRAM =          "https://polar-caverns-82169.herokuapp.com/";
+    public static final String KEY_POST_ID_TOKEN =          "token-device/";
+    public static final String KEY_POST_REGISTRO_USUARIO =  "registro-usuario/";
 
 }
