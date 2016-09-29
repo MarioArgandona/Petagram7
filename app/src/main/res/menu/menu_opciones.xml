@@ -25,6 +25,13 @@
         >
     </item>
 
+    <item
+        android:id="@+id/mRecibirNotificaciones"
+        android:title="@string/recibir_notificaciones"
+        android:orderInCategory="106"
+        >
+    </item>
+
 
     <item
         android:id="@+id/mFavoritos"

@@ -28,6 +28,7 @@
     <string name="menu_acerca_de">Acerca de...</string>
     <string name="configurar_cuenta">Configurar Cuenta</string>
     <string name="menu_contacto">Contacto</string>
+    <string name="recibir_notificaciones">Recibir Notificaciones</string>
     <string name="falta_nombre_correo">Favor de introducir nombre</string>
     <string name="falta_email_correo">Favor de introducir email</string>
     <string name="menu_favoritos">Favoritos</string>
