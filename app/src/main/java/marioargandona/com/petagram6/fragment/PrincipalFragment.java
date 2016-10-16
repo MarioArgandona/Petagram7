@@ -130,10 +130,14 @@ public class PrincipalFragment extends Fragment implements IPrincipalFragment {
         SharedPreferences.Editor editor=preferencias.edit();
         editor.putString("id", mascotas.get(0).getIdInstagram());
         editor.putString("urlPerfil" , mascotas.get(0).getUrlFoto());
+        editor.putString("mediaLink" , mascotas.get(0).getMediaLink());
+        editor.putString("mediaId" , mascotas.get(0).getMediaId());
         editor.commit();
 
         ConstantesRestApi.idUsuario = mascotas.get(0).getIdInstagram();
         ConstantesRestApi.urlPerfil = mascotas.get(0).getUrlFoto();
+        ConstantesRestApi.mediaLink = mascotas.get(0).getMediaLink();
+        ConstantesRestApi.mediaId = mascotas.get(0).getMediaId();
         presenter2 = new PrincipalFragmentPresenter(this , getContext() , true);
     }
 

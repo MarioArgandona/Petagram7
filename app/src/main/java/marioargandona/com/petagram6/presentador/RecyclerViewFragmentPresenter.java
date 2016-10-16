@@ -1,6 +1,7 @@
 package marioargandona.com.petagram6.presentador;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -11,9 +12,12 @@ import java.util.ArrayList;
 import marioargandona.com.petagram6.db.ConstructorMascotas;
 import marioargandona.com.petagram6.entidades.Mascota;
 import marioargandona.com.petagram6.fragment.IRecyclerViewFragmentView;
+import marioargandona.com.petagram6.restApi.ConstantesRestApi;
 import marioargandona.com.petagram6.restApi.EndpointsApi;
 import marioargandona.com.petagram6.restApi.adapter.RestApiAdapter;
 import marioargandona.com.petagram6.restApi.model.MascotaResponse;
+import marioargandona.com.petagram6.restApi.model.UsuarioPropioResponse;
+import marioargandona.com.petagram6.restApi.model.UsuarioResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -79,6 +83,29 @@ public class RecyclerViewFragmentPresenter implements IRecyclerViewFragmentPrese
                 MascotaResponse mascotaResponse = response.body();
                 mascotas = mascotaResponse.getMascotas();
                 mostrarMascotasRecyclerView();
+
+                //BUSCAMOS USUARIO PROPIO DE LA APLICACION
+                RestApiAdapter restApiAdapter = new RestApiAdapter();
+                Gson gsonUser = restApiAdapter.construyeGsonDeserializadorUserPropio();
+                EndpointsApi endpointsApi = restApiAdapter.establecerConexionRestApiInstagram(gsonUser);
+                Call<UsuarioPropioResponse> mascotaResponseCall = endpointsApi.getUserPropio();
+
+                mascotaResponseCall.enqueue(new Callback<UsuarioPropioResponse>() {
+                    @Override
+                    public void onResponse(Call<UsuarioPropioResponse> call, Response<UsuarioPropioResponse> responseUsuario) {
+                        UsuarioPropioResponse mascotaResponse = responseUsuario.body();
+                        //mascotaResponse.getId_usuario_instagram();
+                        ConstantesRestApi.usuarioPropio = mascotaResponse.getUsername();
+                    }
+
+                    @Override
+                    public void onFailure(Call<UsuarioPropioResponse> call, Throwable t) {
+                        Toast.makeText(context, "Falló la conexión con Instagram. Intenta de nuevo.", Toast.LENGTH_LONG).show();
+                        Log.e("FALLO EN LA CONEXION" , t.toString());
+                    }
+                });
+
+
             }
 
             @Override

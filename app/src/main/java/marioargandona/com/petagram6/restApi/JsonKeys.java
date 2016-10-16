@@ -16,6 +16,8 @@ public final class JsonKeys {
     public static final String MEDIA_IMAGES                 = "images";
     public static final String MEDIA_STANDARD_RESOLUTION    = "standard_resolution";
     public static final String MEDIA_LIKES                  = "likes";
+    public static final String MEDIA_ID                     = "id";
+    public static final String MEDIA_LINK                   = "link";
 
 
 }

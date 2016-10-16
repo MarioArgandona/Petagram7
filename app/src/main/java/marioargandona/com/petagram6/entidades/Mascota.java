@@ -13,6 +13,8 @@ public class Mascota {
     private String nombreCompleto;
     private String urlFoto;
     private Integer likes;
+    private String mediaLink;
+    private String mediaId;
 
 
     public Mascota(String nombreMascota , Integer foto , Integer likes)
@@ -31,6 +33,17 @@ public class Mascota {
         this.nombreCompleto = nombreCompleto;
         this.urlFoto = urlFoto;
         this.likes = likes;
+    }
+
+
+    public Mascota(String idInstagram , String nombreCompleto , String urlFoto , Integer likes , String mediaLink , String mediaId)
+    {
+        this.idInstagram = idInstagram;
+        this.nombreCompleto = nombreCompleto;
+        this.urlFoto = urlFoto;
+        this.likes = likes;
+        this.mediaLink = mediaLink;
+        this.mediaId = mediaId;
     }
 
 
@@ -91,6 +104,22 @@ public class Mascota {
 
     public void setUrlFoto(String urlFoto) {
         this.urlFoto = urlFoto;
+    }
+
+    public String getMediaLink() {
+        return mediaLink;
+    }
+
+    public void setMediaLink(String mediaLink) {
+        this.mediaLink = mediaLink;
+    }
+
+    public String getMediaId() {
+        return mediaId;
+    }
+
+    public void setMediaId(String mediaId) {
+        this.mediaId = mediaId;
     }
 
     public Integer getLikes() {

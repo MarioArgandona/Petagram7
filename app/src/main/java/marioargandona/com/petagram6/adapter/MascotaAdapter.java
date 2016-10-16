@@ -81,6 +81,8 @@ public class MascotaAdapter extends RecyclerView.Adapter<MascotaAdapter.MascotaV
                 Intent intent = new Intent(activity , DetalleMascota.class);
                 intent.putExtra("url" , mascota.getUrlFoto());
                 intent.putExtra("like" , mascota.getLikes());
+                intent.putExtra("mediaLink" , mascota.getMediaLink());
+                intent.putExtra("mediaId" , mascota.getMediaId());
                 activity.startActivity(intent);
 
             }

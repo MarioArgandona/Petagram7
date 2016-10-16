@@ -7,6 +7,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.google.gson.JsonPrimitive;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -53,11 +54,16 @@ public class MascotaDeserializador implements JsonDeserializer<MascotaResponse>{
             JsonObject likesJson            = mascotaResponseDataObject.getAsJsonObject(JsonKeys.MEDIA_LIKES);
             Integer likes                   = likesJson.get(JsonKeys.MEDIA_LIKES_COUNT).getAsInt();
 
+            String link                     = mascotaResponseDataObject.getAsJsonPrimitive(JsonKeys.MEDIA_LINK).getAsString();
+            String mediaId                  = mascotaResponseDataObject.getAsJsonPrimitive(JsonKeys.MEDIA_ID).getAsString();
+
             Mascota mascotaActual = new Mascota();
             mascotaActual.setIdInstagram(id);
             mascotaActual.setNombreComleto(nombreCompleto);
             mascotaActual.setUrlFoto(urlFoto);
             mascotaActual.setLikes(likes);
+            mascotaActual.setMediaLink(link);
+            mascotaActual.setMediaId(mediaId);
 
             mascotas.add(mascotaActual);
         }

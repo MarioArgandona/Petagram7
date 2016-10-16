@@ -7,7 +7,10 @@ import marioargandona.com.petagram6.restApi.ConstantesRestApi;
 import marioargandona.com.petagram6.restApi.EndpointsApi;
 import marioargandona.com.petagram6.restApi.deserializador.MascotaDeserializador;
 import marioargandona.com.petagram6.restApi.deserializador.MascotaDeserializadorUser;
+import marioargandona.com.petagram6.restApi.deserializador.UsuarioDeserealizadorUserPropio;
 import marioargandona.com.petagram6.restApi.model.MascotaResponse;
+import marioargandona.com.petagram6.restApi.model.UsuarioPropioResponse;
+import marioargandona.com.petagram6.restApi.model.UsuarioResponse;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -62,6 +65,13 @@ public class RestApiAdapter {
     {
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.registerTypeAdapter(MascotaResponse.class , new MascotaDeserializadorUser());
+        return gsonBuilder.create();
+    }
+
+    public Gson construyeGsonDeserializadorUserPropio()
+    {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(UsuarioPropioResponse.class , new UsuarioDeserealizadorUserPropio());
         return gsonBuilder.create();
     }
 

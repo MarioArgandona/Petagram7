@@ -10,6 +10,29 @@ public class UsuarioResponse {
     private String idUsuario;
     private String id_dispositivo;
     private String id_usuario_instagram;
+    private String id_foto;
+    private String id_valor;
+
+    public String getId_valor() {
+        return id_valor;
+    }
+
+    public void setId_valor(String id_valor) {
+        this.id_valor = id_valor;
+    }
+
+    public String getId_foto() {
+        return id_foto;
+    }
+
+    public void setId_foto(String id_foto) {
+        this.id_foto = id_foto;
+    }
+
+    public UsuarioResponse()
+    {
+
+    }
 
     public UsuarioResponse(String id , String token)
     {
@@ -29,6 +52,23 @@ public class UsuarioResponse {
         this.id = id;
         this.id_dispositivo = id_dispositivo;
         this.id_usuario_instagram = id_usuario_instagram;
+    }
+
+    public UsuarioResponse(String id , String id_dispositivo , String id_usuario_instagram , String id_foto)
+    {
+        this.id = id;
+        this.id_dispositivo = id_dispositivo;
+        this.id_usuario_instagram = id_usuario_instagram;
+        this.id_foto = id_foto;
+    }
+
+    public UsuarioResponse(String id , String id_dispositivo , String id_usuario_instagram , String id_foto , String id_valor)
+    {
+        this.id = id;
+        this.id_dispositivo = id_dispositivo;
+        this.id_usuario_instagram = id_usuario_instagram;
+        this.id_foto = id_foto;
+        this.id_valor = id_valor;
     }
 
 
@@ -71,4 +111,6 @@ public class UsuarioResponse {
     public void setId_usuario_instagram(String id_usuario_instagram) {
         this.id_usuario_instagram = id_usuario_instagram;
     }
+
+
 }
