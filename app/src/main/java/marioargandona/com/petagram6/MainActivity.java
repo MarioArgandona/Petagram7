@@ -195,9 +195,9 @@ public class MainActivity extends AppCompatActivity {
 
         ConstantesRestApi.idDispositivo = id_dispositivo;
 
-        enviarIdDispositivoRegistro(id_dispositivo , ConstantesRestApi.usuario);
+        //enviarIdDispositivoRegistro(id_dispositivo , ConstantesRestApi.usuario);
         //enviarIdDispositivoRegistro(id_dispositivo , "gatitoflaco");
-        //enviarIdDispositivoRegistro(id_dispositivo , ConstantesRestApi.usuarioPropio);
+        enviarIdDispositivoRegistro(id_dispositivo , ConstantesRestApi.usuarioPropio);
     }
 
 
